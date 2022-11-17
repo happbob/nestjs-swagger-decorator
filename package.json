@@ -1,0 +1,18 @@
+{
+  "name": "nestjs-swagger-decorator",
+  "version": "1.0.0",
+  "description": "The greatest swagger decorator for NestJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "happbob <limms1217@naver.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "@nestjs/common": "^9.2.0",
+    "@nestjs/swagger": "^6.1.3"
+  }
+}
