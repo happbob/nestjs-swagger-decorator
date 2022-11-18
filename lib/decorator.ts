@@ -1,7 +1,7 @@
 import {applyDecorators} from "@nestjs/common";
 import {ApiOperation, ApiResponse} from "@nestjs/swagger";
 
-function BaseSwaggerDecorator(apiSummary: string, successResponseList: ResponseT[], validationList: ResponseT[]) {
+export function BaseSwaggerDecorator(apiSummary: string, successResponseList: ResponseT[], validationList: ResponseT[]) {
     const successResponseDecorators = [], validationResponseDecorators = [];
 
     for (let successData of successResponseList){
