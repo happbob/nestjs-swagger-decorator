@@ -4,7 +4,7 @@
   "description": "The greatest swagger decorator for NestJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:typescript": "tsc"
   },
   "author": "happbob <limms1217@naver.com>",
   "license": "MIT",
