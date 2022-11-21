@@ -1,12 +1,12 @@
 {
   "name": "nestjs-swagger-decorator",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "The greatest swagger decorator for NestJS",
   "main": "lib/index.js",
   "types": "src/index.ts",
   "scripts": {
     "build:typescript": "tsc",
-    "publish": "npm run build:typescript && npm publish"
+    "publish:build": "npm run build:typescript && npm publish"
   },
   "author": "happbob <limms1217@naver.com>",
   "license": "MIT",
