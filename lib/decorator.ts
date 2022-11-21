@@ -2,7 +2,7 @@ import {applyDecorators} from "@nestjs/common";
 import {ApiOperation, ApiResponse} from "@nestjs/swagger";
 import {ResponseT} from './response.t'
 
-export function BaseSwaggerDecorator (apiSummary: string, successResponseList: ResponseT[], validationList: ResponseT[]) {
+export default function BaseSwaggerDecorator (apiSummary: string, successResponseList: ResponseT[], validationList: ResponseT[]) {
     const successResponseDecorators = [], validationResponseDecorators = [];
 
     for (let successData of successResponseList){

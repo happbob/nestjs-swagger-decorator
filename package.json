@@ -1,6 +1,6 @@
 {
   "name": "nestjs-swagger-decorator",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "The greatest swagger decorator for NestJS",
   "main": "index.js",
   "scripts": {
