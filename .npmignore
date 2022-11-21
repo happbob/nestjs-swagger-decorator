@@ -13,6 +13,6 @@ npm-debug.log
 .vscode
 .github
 
-dist
+/src
 test
 node_modules
