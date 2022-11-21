@@ -1,4 +1,4 @@
-interface ResponseT {
+export interface ResponseT {
     // success or not
     // ex) true
     isSuccess: boolean,
