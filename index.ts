@@ -1,1 +1,1 @@
-export * from './lib/decorator';
+export { BaseSwaggerDecorator } from './lib/decorator';
