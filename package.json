@@ -1,6 +1,6 @@
 {
   "name": "nestjs-swagger-decorator",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "The greatest swagger decorator for NestJS",
   "main": "lib/index.js",
   "types": "src/index.ts",
@@ -16,7 +16,6 @@
   "dependencies": {
     "@nestjs/common": "^9.2.0",
     "@nestjs/core": "^9.2.0",
-    "@nestjs/swagger": "^6.1.3",
-    "nestjs": "0.0.1"
+    "@nestjs/swagger": "^6.1.3"
   }
 }
