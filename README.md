@@ -86,32 +86,28 @@ export function GetOutsourceWorkerRecruitmentSwagger(apiSummary){
 						   message: 'success',
                type: GetUsersResponse
             }],
-            [
-							{
-							 isSuccess: false,
-					     code: 2000,
-						   message: 'no authority'
-							},
-						 {
-							 isSuccess: false,
-					     code: 2013,
-						   message: 'no users exists.'
-							},
-             {
-							 isSuccess: false,
-					     code: 2016,
-						   message: 'no admin authority'
-							}{
-							 isSuccess: false,
-					     code: 4000,
-						   message: 'server error'
-							},
-             {
-							 isSuccess: false,
-					     code: 4001,
-						   message: 'DB Connection error'
-							}
-            ])
+            [{
+                isSuccess: false, 
+                code: 2000,
+                message: 'no authority'
+            }, {
+                isSuccess: false,
+                code: 2013,
+                message: 'no users exists.'
+            }, {
+                isSuccess: false,
+                code: 2016,
+                message: 'no admin authority'
+            }, {
+                isSuccess: false,
+                code: 4000,
+                message: 'server error'
+            }, {
+                isSuccess: false,
+                code: 4001,
+                message: 'DB Connection error'
+            }]
+        );
 }
 ```
 
@@ -142,48 +138,43 @@ export function GetOutsourceWorkerRecruitmentSwagger(apiSummary){
                type: GetUsersResponse
             }],
             [
-							response.CHECK_JWT_TOKEN,
-							response.USER_ID_EMPTY,
-							response.CHECK_ADMIN_JWT_TOKEN,
-							response.ERROR,
-							response.DB_ERROR,
+                response.CHECK_JWT_TOKEN,
+                response.USER_ID_EMPTY,
+                response.CHECK_ADMIN_JWT_TOKEN,
+                response.ERROR,
+                response.DB_ERROR,
             ]
-			)
+        );
 }
 ```
 
 ```tsx
 export const response = {
-  SUCCESS: {
-    isSuccess: true,
-    code: 1000,
-    message: 'success',
-  },
-  CHECK_JWT_TOKEN: {
-		isSuccess: false,
-		code: 2000,
-		message: 'no authority'
-},
-  USER_ID_EMPTY: {
-    isSuccess: false,
-    code: 2013,
-    message: 'no users exists.',
-  },
-  CHECK_ADMIN_JWT_TOKEN: {
-    isSuccess: false,
-    code: 2016,
-    message: 'no admin authority',
-  },
-  ERROR: {
-    isSuccess: false,
-    code: 4000,
-    message: 'Server error',
-  },
-	DB_ERROR: {
-    isSuccess: false,
-    code: 4001,
-    message: 'DB Connection error',
-  },
+    SUCCESS: {
+        isSuccess: true,
+        code: 1000,
+        message: 'success',
+    }, CHECK_JWT_TOKEN: {
+        isSuccess: false,
+        code: 2000,
+        message: 'no authority'
+    }, USER_ID_EMPTY: {
+        isSuccess: false,
+        code: 2013,
+        message: 'no users exists.',
+    }, CHECK_ADMIN_JWT_TOKEN: {
+        isSuccess: false,
+        code: 2016,
+        message: 'no admin authority',
+    }, ERROR: {
+        isSuccess: false,
+        code: 4000,
+        message: 'Server error',
+    }, DB_ERROR: {
+        isSuccess: false,
+        code: 4001,
+        message: 'DB Connection error',
+    },
 }
 ```
 
