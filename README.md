@@ -3,16 +3,18 @@
 ---
 
 > The greatest swagger decorator for NestJS
->
-<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=TypeScript&logoColor=white"/>
-<img src="https://img.shields.io/badge/NestJS-E0234E?style=flat&logo=NestJS&logoColor=white"/>
-<img src="https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=Swagger&logoColor=black"/>
-<a href="https://www.npmjs.com/package/nestjs-swagger-decorator">
-    <img src="https://img.shields.io/npm/dt/nestjs-swagger-decorator">
-</a>
-<a href="https://github.com/happbob/nestjs-swagger-decorator">
-    <img src="https://img.shields.io/github/stars/happbob/nestjs-swagger-decorator?style=social">
-</a>
+
+<span>
+    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=TypeScript&logoColor=white"/>
+    <img src="https://img.shields.io/badge/NestJS-E0234E?style=flat&logo=NestJS&logoColor=white"/>
+    <img src="https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=Swagger&logoColor=black"/>
+    <a href="https://www.npmjs.com/package/nestjs-swagger-decorator">
+        <img src="https://img.shields.io/npm/dt/nestjs-swagger-decorator">
+    </a>
+    <a href="https://github.com/happbob/nestjs-swagger-decorator">
+        <img src="https://img.shields.io/github/stars/happbob/nestjs-swagger-decorator?style=social">
+    </a>
+</span>
 
 ## How to install
 
