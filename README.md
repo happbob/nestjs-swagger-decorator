@@ -82,8 +82,8 @@ export function GetOutsourceWorkerRecruitmentSwagger(apiSummary){
             apiSummary,
             [{
                isSuccess: false,
-						   code: 1000,
-						   message: 'success',
+               code: 1000,
+               message: 'success',
                type: GetUsersResponse
             }],
             [{
