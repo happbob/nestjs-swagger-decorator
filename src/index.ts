@@ -4,13 +4,13 @@ import { applyDecorators } from '@nestjs/common';
 
 export const BaseSwaggerDecorator = (
   apiSummary: string,
-  apiResponseOperationPropsList?: ResponseType[],
   responseOperations?: (MethodDecorator & ClassDecorator)[],
+  apiResponseOperationPropsList?: ResponseType[],
 ) => {
-  const successResponseDecorators: (MethodDecorator & ClassDecorator)[] = [];
+  const responseDecorators: (MethodDecorator & ClassDecorator)[] = [];
 
   apiResponseOperationPropsList?.map((apiResponseOperationProps) => {
-    successResponseDecorators.push(
+    responseDecorators.push(
       ApiResponse({
         status: apiResponseOperationProps.status,
         description: apiResponseOperationProps.description,
@@ -19,10 +19,12 @@ export const BaseSwaggerDecorator = (
     );
   });
 
-  responseOperations?.map((responseOperation) => {});
+  responseOperations?.map((responseOperation) => {
+    responseDecorators.push(responseOperation);
+  });
 
   return applyDecorators(
     ApiOperation({ summary: apiSummary }),
-    ...successResponseDecorators,
+    ...responseDecorators,
   );
 };
