@@ -1,40 +1,30 @@
-import {ResponseT} from "./response.t";
-import {ApiOperation, ApiResponse} from "@nestjs/swagger";
-import {applyDecorators} from "@nestjs/common";
+import { ResponseType } from './types/ok-response.type';
+import { ApiOperation, ApiResponse, ApiResponseOptions } from '@nestjs/swagger';
+import { applyDecorators } from '@nestjs/common';
 
+export const BaseSwaggerDecorator = (
+  apiSummary: string,
+  responseOperations?: (MethodDecorator & ClassDecorator)[],
+  apiResponseOperationPropsList?: ResponseType[],
+) => {
+  const responseDecorators: (MethodDecorator & ClassDecorator)[] = [];
 
-export const BaseSwaggerDecorator = (apiSummary: string, successResponseList: ResponseT[], validationList: ResponseT[]) => {
-    const successResponseDecorators = [], validationResponseDecorators = [];
+  apiResponseOperationPropsList?.map((apiResponseOperationProps) => {
+    responseDecorators.push(
+      ApiResponse({
+        status: apiResponseOperationProps.status,
+        description: apiResponseOperationProps.description,
+        type: apiResponseOperationProps.type,
+      }),
+    );
+  });
 
-    for (let successData of successResponseList){
-        successData.type ?
-            successResponseDecorators.push(
-                ApiResponse({
-                    status: successData.code,
-                    description: successData.message,
-                    type: successData.type
-                })
-            ) :
-            successResponseDecorators.push(
-                ApiResponse({
-                    status: successData.code,
-                    description: successData.message,
-                })
-            )
-    }
+  responseOperations?.map((responseOperation) => {
+    responseDecorators.push(responseOperation);
+  });
 
-    for (let validationData of validationList){
-        validationResponseDecorators.push(
-            ApiResponse({
-                status: validationData.code,
-                description: validationData.message,
-            })
-        )
-    }
-
-    return applyDecorators(
-        ApiOperation({ summary: apiSummary }),
-        ...successResponseDecorators,
-        ...validationResponseDecorators,
-    )
-}
+  return applyDecorators(
+    ApiOperation({ summary: apiSummary }),
+    ...responseDecorators,
+  );
+};

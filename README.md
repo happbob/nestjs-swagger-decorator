@@ -2,7 +2,7 @@
 
 ---
 
-> The greatest swagger decorator for NestJS
+> Minimal swagger decorator for NestJS
 
 <span>
     <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=TypeScript&logoColor=white"/>
@@ -18,17 +18,18 @@
 
 ## How to install
 
----
-
 ```bash
 npm i nestjs-swagger-decorator
+# or
+yarn add nestjs-swagger-decorator
 ```
+
+<br/>
 
 ## Old usage
 
----
-
-```tsx
+```ts
+// Too many Lines...
 @ApiResponse({
     status: 1000,
     description: 'success',
@@ -59,152 +60,96 @@ async getUsers(@Headers('x-access-token') jwt, @Request() req){
 }
 ```
 
+<br/>
+
 ## New usage (nestjs-swagger-decorator)
 
----
+```ts
+// domain.controller.ts
+import {GetDomainSwagger} from "./domain.swagger";
 
-```tsx
-import {UserSwagger} from "./user.swagger";
-
-@UserSwagger('[Admin] get users api')
+@GetDomainSwagger('get domains api')
 async getProjectType(@Headers('x-access-token') jwt, @Request() req){
 }
 ```
 
-```tsx
-import { ApiHeader, ApiParam, ApiQuery } from "@nestjs/swagger";
-import {BaseSwaggerDecorator} from "nestjs-swagger-decorator";
-import { applyDecorators } from "@nestjs/common";
+```ts
+// domain.swagger.ts
+import { BaseSwaggerDecorator } from 'nestjs-swagger-decorator';
+import { applyDecorators } from '@nestjs/common';
 
-export function GetOutsourceWorkerRecruitmentSwagger(apiSummary){
-    return 
-        BaseSwaggerDecorator(
-            apiSummary,
-            [{
-               isSuccess: false,
-               code: 1000,
-               message: 'success',
-               type: GetUsersResponse
-            }],
-            [{
-                isSuccess: false, 
-                code: 2000,
-                message: 'no authority'
-            }, {
-                isSuccess: false,
-                code: 2013,
-                message: 'no users exists.'
-            }, {
-                isSuccess: false,
-                code: 2016,
-                message: 'no admin authority'
-            }, {
-                isSuccess: false,
-                code: 4000,
-                message: 'server error'
-            }, {
-                isSuccess: false,
-                code: 4001,
-                message: 'DB Connection error'
-            }]
-        );
+export function GetDomainSwagger(apiSummary) {
+  return BaseSwaggerDecorator(
+    apiSummary,
+	// Swagger Operations
+    [
+      ApiOkResponse({description: 'OK'}),
+	  ApiCreatedResponse({description: 'created'})
+    ],
+    // Cutsom response operation props
+    [
+      {
+        status: 200,
+        description: 'Custom Response Description'
+        type: GetDomainResponse,
+      },
+    ],
+  );
 }
 ```
 
-## Shorter Usage
+### You can find more Response Operations at [here](https://docs.nestjs.com/openapi/operations#responses)
 
----
+<br/>
 
-```tsx
-import {UserSwagger} from "./user.swagger";
+## Recommend Usage
 
-@UserSwagger('[Admin] get users api')
+```ts
+// domain.controller.ts
+import {GetDomainSwagger} from "./domain.swagger";
+
+@GetDomainSwagger('get domains api')
 async getProjectType(@Headers('x-access-token') jwt, @Request() req){
 }
 ```
 
-```tsx
-import { ApiHeader, ApiParam, ApiQuery } from "@nestjs/swagger";
-import {BaseSwaggerDecorator} from "nestjs-swagger-decorator";
-import { applyDecorators } from "@nestjs/common";
-import { response } from "{response file location}";
+```ts
+// domain.swagger.ts
+import { BaseSwaggerDecorator } from 'nestjs-swagger-decorator';
+import { applyDecorators } from '@nestjs/common';
+import { response } from '{response file location}';
 
-export function GetOutsourceWorkerRecruitmentSwagger(apiSummary){
-    return 
-        BaseSwaggerDecorator(
-            apiSummary,
-            [{
-               ...respone.SUCCESS,
-               type: GetUsersResponse
-            }],
-            [
-                response.CHECK_JWT_TOKEN,
-                response.USER_ID_EMPTY,
-                response.CHECK_ADMIN_JWT_TOKEN,
-                response.ERROR,
-                response.DB_ERROR,
-            ]
-        );
+export function GetOutsourceWorkerRecruitmentSwagger(apiSummary) {
+  return BaseSwaggerDecorator(
+    apiSummary,
+    [
+      ApiOkResponse({ description: 'OK' }),
+      ApiCreatedResponse({ description: 'created' }),
+    ],
+    [
+      { ...response.CHECK_JWT_TOKEN },
+      { ...response.SUCCESS, type: GetDomainResponse },
+    ],
+  );
 }
 ```
 
-```tsx
+```ts
 export const response = {
-    SUCCESS: {
-        isSuccess: true,
-        code: 1000,
-        message: 'success',
-    }, CHECK_JWT_TOKEN: {
-        isSuccess: false,
-        code: 2000,
-        message: 'no authority'
-    }, USER_ID_EMPTY: {
-        isSuccess: false,
-        code: 2013,
-        message: 'no users exists.',
-    }, CHECK_ADMIN_JWT_TOKEN: {
-        isSuccess: false,
-        code: 2016,
-        message: 'no admin authority',
-    }, ERROR: {
-        isSuccess: false,
-        code: 4000,
-        message: 'Server error',
-    }, DB_ERROR: {
-        isSuccess: false,
-        code: 4001,
-        message: 'DB Connection error',
-    },
-}
+  SUCCESS: {
+	status: 200
+    description: 'success',
+  },
+  CHECK_JWT_TOKEN: {
+	status: 401
+    description: 'jwt token invalid',
+  },
+  USER_ID_EMPTY: {
+	status: 404
+    description: 'not found User id',
+  },
+	...
+};
 ```
 
-## BaseSwaggerDecorator Type
-
----
-
-```tsx
-const BaseSwaggerDecorator = (apiSummary: string, successResponseList: ResponseT[], validationList: ResponseT[]) => {
-}
-```
-
-```tsx
-export interface ResponseT {
-    // success or not
-    // ex) true
-    isSuccess: boolean,
-
-    // api status code
-    // ex) 1000
-    code: number,
-
-    // describe api result
-    // ex) Missing Category Id.
-    message: string,
-
-    // deliver result data object
-    result?: any,
-
-    // check result type
-    type?: any
-}
-```
+<br/>
