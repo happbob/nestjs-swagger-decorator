@@ -17,3 +17,5 @@ test
 node_modules
 .prettierrc
 /dist
+yarn.lock
+tsconfig.json
