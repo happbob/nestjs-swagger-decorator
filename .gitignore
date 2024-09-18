@@ -6,3 +6,5 @@ node_modules
 /lib
 .vscode
 .prettierrc
+/dist
+test

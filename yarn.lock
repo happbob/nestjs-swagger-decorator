@@ -7,6 +7,11 @@
   resolved "https://registry.yarnpkg.com/@lukeed/csprng/-/csprng-1.1.0.tgz#1e3e4bd05c1cc7a0b2ddbd8a03f39f6e4b5e6cfe"
   integrity sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==
 
+"@microsoft/tsdoc@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@microsoft/tsdoc/-/tsdoc-0.15.0.tgz#f29a55df17cb6e87cfbabce33ff6a14a9f85076d"
+  integrity sha512-HZpPoABogPvjeJOdzCOSJsXeL/SMCBgBZMVC3X3d7YYp2gf31MfxhUoYUNwf1ERPJOnQc0wkFn9trqI6ZEdZuA==
+
 "@nestjs/common@^9.4.3":
   version "9.4.3"
   resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-9.4.3.tgz#f907c5315b4273f7675864a05c4dda7056632b87"
@@ -28,21 +33,22 @@
     path-to-regexp "3.2.0"
     tslib "2.5.3"
 
-"@nestjs/mapped-types@1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@nestjs/mapped-types/-/mapped-types-1.2.2.tgz#d9ddb143776e309dbc1a518ac1607fddac1e140e"
-  integrity sha512-3dHxLXs3M0GPiriAcCFFJQHoDFUuzTD5w6JDhE7TyfT89YKpe6tcCCIqOZWdXmt9AZjjK30RkHRSFF+QEnWFQg==
+"@nestjs/mapped-types@2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@nestjs/mapped-types/-/mapped-types-2.0.5.tgz#485d6b44e19779c98d04e52bd1d2bcc7001df0ea"
+  integrity sha512-bSJv4pd6EY99NX9CjBIyn4TVDoSit82DUZlL4I3bqNfy5Gt+gXTa86i3I/i0iIV9P4hntcGM5GyO+FhZAhxtyg==
 
-"@nestjs/swagger@^6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/swagger/-/swagger-6.3.0.tgz#2963395a398374c25548a012eb15f03f53ad6e53"
-  integrity sha512-Gnig189oa1tD+h0BYIfUwhp/wvvmTn6iO3csR2E4rQrDTgCxSxZDlNdfZo3AC+Rmf8u0KX4ZAX1RZN1qXTtC7A==
+"@nestjs/swagger@^7.4.2":
+  version "7.4.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/swagger/-/swagger-7.4.2.tgz#3b72eb8a6d1366e8e211f9a90681283bb18817e9"
+  integrity sha512-Mu6TEn1M/owIvAx2B4DUQObQXqo2028R2s9rSZ/hJEgBK95+doTwS0DjmVA2wTeZTyVtXOoN7CsoM5pONBzvKQ==
   dependencies:
-    "@nestjs/mapped-types" "1.2.2"
+    "@microsoft/tsdoc" "^0.15.0"
+    "@nestjs/mapped-types" "2.0.5"
     js-yaml "4.1.0"
     lodash "4.17.21"
-    path-to-regexp "3.2.0"
-    swagger-ui-dist "4.18.2"
+    path-to-regexp "3.3.0"
+    swagger-ui-dist "5.17.14"
 
 "@nuxtjs/opencollective@0.3.2":
   version "0.3.2"
@@ -72,6 +78,11 @@ chalk@^4.1.0:
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
+
+class-transformer@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/class-transformer/-/class-transformer-0.5.1.tgz#24147d5dffd2a6cea930a3250a677addf96ab336"
+  integrity sha512-SQa1Ws6hUbfC98vKGxZH3KFY0Y1lm5Zm0SY8XX9zbK7FJCyVEac3ATW0RIpwzW+oOfmHE5PMPufDG9hCfoEOMw==
 
 color-convert@^2.0.1:
   version "2.0.1"
@@ -129,10 +140,20 @@ path-to-regexp@3.2.0:
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-3.2.0.tgz#fa7877ecbc495c601907562222453c43cc204a5f"
   integrity sha512-jczvQbCUS7XmS7o+y1aEO9OBVFeZBQ1MDSEqmO7xSoPgOPoowY/SxLpZ6Vh97/8qHZOteiCKb7gkG9gA2ZUxJA==
 
+path-to-regexp@3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-3.3.0.tgz#f7f31d32e8518c2660862b644414b6d5c63a611b"
+  integrity sha512-qyCH421YQPS2WFDxDjftfc1ZR5WKQzVzqsp4n9M2kQhVOo/ByahFoUNJfl58kOcEGfQ//7weFTDhm+ss8Ecxgw==
+
 prettier@^3.3.3:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.3.3.tgz#30c54fe0be0d8d12e6ae61dbb10109ea00d53105"
   integrity sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==
+
+reflect-metadata@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.2.2.tgz#400c845b6cba87a21f2c65c4aeb158f4fa4d9c5b"
+  integrity sha512-urBwgfrvVP/eAyXx4hluJivBKzuEbSQs9rKWCrCkbSxNv8mxPcUZKeuoF3Uy4mJl3Lwprp6yy5/39VWigZ4K6Q==
 
 supports-color@^7.1.0:
   version "7.2.0"
@@ -141,10 +162,10 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-swagger-ui-dist@4.18.2:
-  version "4.18.2"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-4.18.2.tgz#323308f1c1d87a7c22ce3e273c31835eb680a71b"
-  integrity sha512-oVBoBl9Dg+VJw8uRWDxlyUyHoNEDC0c1ysT6+Boy6CTgr2rUcLcfPon4RvxgS2/taNW6O0+US+Z/dlAsWFjOAQ==
+swagger-ui-dist@5.17.14:
+  version "5.17.14"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.17.14.tgz#e2c222e5bf9e15ccf80ec4bc08b4aaac09792fd6"
+  integrity sha512-CVbSfaLpstV65OnSjbXfVd6Sta3q3F7Cj/yYuvHMp1P90LztOLs6PfUnKEVAeiIVQt9u2SaPwv0LiH/OyMjHRw==
 
 tr46@~0.0.3:
   version "0.0.3"
