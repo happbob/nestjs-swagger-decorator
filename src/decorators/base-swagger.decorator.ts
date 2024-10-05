@@ -16,8 +16,8 @@ import { responseOptionProps } from '../types/responseOptionProps';
  */
 export const BaseSwaggerDecorator = (
   apiOperationProps: Partial<OperationObject>,
-  responseOperations?: (MethodDecorator & ClassDecorator)[],
   responseOption?: responseOptionProps[],
+  responseOperations?: (MethodDecorator & ClassDecorator)[],
 ) => {
   const responseDecorators: (MethodDecorator & ClassDecorator)[] = [];
 
