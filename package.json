@@ -1,6 +1,6 @@
 {
   "name": "nestjs-swagger-decorator",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Minimal swagger decorator for NestJS",
   "main": "lib/index.js",
   "types": "src/index.ts",
@@ -11,14 +11,14 @@
   "author": "happbob <limms1217@naver.com>",
   "license": "MIT",
   "devDependencies": {
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "prettier": "^3.3.3"
   },
   "dependencies": {
     "@nestjs/common": "^9.4.3",
     "@nestjs/core": "^9.4.3",
     "@nestjs/swagger": "^7.4.2",
     "class-transformer": "^0.5.1",
-    "prettier": "^3.3.3",
     "reflect-metadata": "^0.2.2"
   }
 }

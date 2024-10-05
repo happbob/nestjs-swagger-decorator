@@ -16,13 +16,13 @@ import { responseOptionProps } from '../types/responseOptionProps';
  */
 export const BaseSwaggerDecorator = (
   apiOperationProps: Partial<OperationObject>,
-  responseOption: responseOptionProps[],
   responseOperations?: (MethodDecorator & ClassDecorator)[],
+  responseOption?: responseOptionProps[],
 ) => {
   const responseDecorators: (MethodDecorator & ClassDecorator)[] = [];
 
   // Map through the response options and apply the response decorator for each one
-  responseOption.map((option) => {
+  responseOption?.map((option) => {
     return responseDecorators.push(
       option.baseResponseDto
         ? CustomResponseDecorator(
